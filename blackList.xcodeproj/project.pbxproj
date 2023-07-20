@@ -15,9 +15,12 @@
 		6319C7672A6844B40083DC17 /* blackListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6319C7662A6844B40083DC17 /* blackListTests.swift */; };
 		6319C7712A6844B40083DC17 /* blackListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6319C7702A6844B40083DC17 /* blackListUITests.swift */; };
 		6319C7732A6844B40083DC17 /* blackListUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6319C7722A6844B40083DC17 /* blackListUITestsLaunchTests.swift */; };
-		6319C7802A6848570083DC17 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6319C77F2A6848570083DC17 /* SettingsViewController.swift */; };
+		6319C7802A6848570083DC17 /* menuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6319C77F2A6848570083DC17 /* menuViewController.swift */; };
 		6319C7832A684A9C0083DC17 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6319C7822A684A9C0083DC17 /* SnapKit */; };
 		6319C7852A686BB80083DC17 /* buyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6319C7842A686BB80083DC17 /* buyList.swift */; };
+		6319C78B2A68BD9C0083DC17 /* settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6319C78A2A68BD9C0083DC17 /* settings.swift */; };
+		6319C78D2A68C0370083DC17 /* Autorisation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6319C78C2A68C0370083DC17 /* Autorisation.swift */; };
+		6319C78F2A68C0D70083DC17 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6319C78E2A68C0D70083DC17 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,8 +53,11 @@
 		6319C76C2A6844B40083DC17 /* blackListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = blackListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6319C7702A6844B40083DC17 /* blackListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = blackListUITests.swift; sourceTree = "<group>"; };
 		6319C7722A6844B40083DC17 /* blackListUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = blackListUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		6319C77F2A6848570083DC17 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		6319C77F2A6848570083DC17 /* menuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = menuViewController.swift; sourceTree = "<group>"; };
 		6319C7842A686BB80083DC17 /* buyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = buyList.swift; sourceTree = "<group>"; };
+		6319C78A2A68BD9C0083DC17 /* settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settings.swift; sourceTree = "<group>"; };
+		6319C78C2A68C0370083DC17 /* Autorisation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Autorisation.swift; sourceTree = "<group>"; };
+		6319C78E2A68C0D70083DC17 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,14 +109,13 @@
 		6319C74E2A6844B20083DC17 /* blackList */ = {
 			isa = PBXGroup;
 			children = (
-				6319C74F2A6844B20083DC17 /* AppDelegate.swift */,
-				6319C7512A6844B20083DC17 /* SceneDelegate.swift */,
-				6319C7532A6844B20083DC17 /* ViewController.swift */,
-				6319C7842A686BB80083DC17 /* buyList.swift */,
-				6319C77F2A6848570083DC17 /* SettingsViewController.swift */,
+				6319C78C2A68C0370083DC17 /* Autorisation.swift */,
+				6319C7892A68B5500083DC17 /* assistant */,
+				6319C7882A68B5270083DC17 /* menu */,
 				6319C7582A6844B40083DC17 /* Assets.xcassets */,
 				6319C75A2A6844B40083DC17 /* LaunchScreen.storyboard */,
 				6319C75D2A6844B40083DC17 /* Info.plist */,
+				6319C78E2A68C0D70083DC17 /* GoogleService-Info.plist */,
 			);
 			path = blackList;
 			sourceTree = "<group>";
@@ -130,6 +135,26 @@
 				6319C7722A6844B40083DC17 /* blackListUITestsLaunchTests.swift */,
 			);
 			path = blackListUITests;
+			sourceTree = "<group>";
+		};
+		6319C7882A68B5270083DC17 /* menu */ = {
+			isa = PBXGroup;
+			children = (
+				6319C77F2A6848570083DC17 /* menuViewController.swift */,
+				6319C7842A686BB80083DC17 /* buyList.swift */,
+				6319C78A2A68BD9C0083DC17 /* settings.swift */,
+			);
+			path = menu;
+			sourceTree = "<group>";
+		};
+		6319C7892A68B5500083DC17 /* assistant */ = {
+			isa = PBXGroup;
+			children = (
+				6319C7512A6844B20083DC17 /* SceneDelegate.swift */,
+				6319C7532A6844B20083DC17 /* ViewController.swift */,
+				6319C74F2A6844B20083DC17 /* AppDelegate.swift */,
+			);
+			path = assistant;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,6 +269,7 @@
 			files = (
 				6319C75C2A6844B40083DC17 /* LaunchScreen.storyboard in Resources */,
 				6319C7592A6844B40083DC17 /* Assets.xcassets in Resources */,
+				6319C78F2A68C0D70083DC17 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,10 +295,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				6319C7542A6844B20083DC17 /* ViewController.swift in Sources */,
+				6319C78D2A68C0370083DC17 /* Autorisation.swift in Sources */,
 				6319C7502A6844B20083DC17 /* AppDelegate.swift in Sources */,
+				6319C78B2A68BD9C0083DC17 /* settings.swift in Sources */,
 				6319C7522A6844B20083DC17 /* SceneDelegate.swift in Sources */,
 				6319C7852A686BB80083DC17 /* buyList.swift in Sources */,
-				6319C7802A6848570083DC17 /* SettingsViewController.swift in Sources */,
+				6319C7802A6848570083DC17 /* menuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

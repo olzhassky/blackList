@@ -77,22 +77,27 @@ class NewViewController: UIViewController {
         homeButton.setImage(homeIcon, for: .normal)
         homeButton.imageView?.contentMode = .scaleAspectFit
         homeButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: -125, bottom: 0, right: 90)
-        
+        homeButton.titleEdgeInsets = UIEdgeInsets(top: 0, left: -175, bottom: 0, right: 0)
+
         let buyIcon = UIImage(systemName: "cart")
         buyButton.setImage(buyIcon, for: .normal)
         buyButton.imageView?.contentMode = .scaleAspectFit
         buyButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: -120, bottom: 0, right: 90)
-        
+        buyButton.titleEdgeInsets = UIEdgeInsets(top: 0, left: -163, bottom: 0, right: 0)
+
         let settingIcon = UIImage(systemName: "gearshape")
         settingButton.setImage(settingIcon, for: .normal)
         settingButton.imageView?.contentMode = .scaleAspectFit
         settingButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: -180, bottom: 0, right: 80)
+        settingButton.titleEdgeInsets = UIEdgeInsets(top: 0, left: -207, bottom: 0, right: 0)
+
     }
     
     
     
     @objc func home() {
         dismiss(animated: true, completion: nil)
+        
     }
     @objc func buy() {
         let viewController = TableViewController()
@@ -101,6 +106,9 @@ class NewViewController: UIViewController {
         present(navigationController, animated: true, completion: nil)
     }
     @objc func settingButtonTapped() {
-        print("asd")
+        let viewController = SettingsViewController()
+        let navigationController = UINavigationController(rootViewController: viewController)
+        navigationController.modalPresentationStyle = .fullScreen
+        present(navigationController, animated: true, completion: nil)
     }
 }

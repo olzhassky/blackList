@@ -1,21 +1,19 @@
 import UIKit
-import SnapKit
 
 struct Product {
     let name: String
     var quantity: Int
 }
 
-
 class TableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     let tableView = UITableView()
     var products: [Product] = []
-    
+    var selectedProducts: Set<Int> = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
         setupTableView()
-        
     }
     
     private func setupNavigationBar() {
@@ -26,11 +24,6 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         navigationItem.leftBarButtonItem = backButton
         navigationItem.title = "Список покупок"
     }
-    @objc func backButtonTapped() {
-        dismiss(animated: true, completion: nil)
-    }
-    
-    
     
     private func setupTableView() {
         tableView.delegate = self
@@ -39,8 +32,41 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         view.addSubview(tableView)
     }
     
-
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return products.count
+    }
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
+        let product = products[indexPath.row]
+        cell.textLabel?.text = "\(product.name) (\(product.quantity))"
+        
+        cell.accessoryType = selectedProducts.contains(indexPath.row) ? .checkmark : .none
+        
+        cell.selectionStyle = .default
+        cell.textLabel?.textColor = selectedProducts.contains(indexPath.row) ? .gray : .white
+
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        if selectedProducts.contains(indexPath.row) {
+            selectedProducts.remove(indexPath.row)
+        } else {
+            selectedProducts.insert(indexPath.row)
+        }
+        
+        tableView.reloadRows(at: [indexPath], with: .automatic)
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            products.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
     
     
     @objc private func addButtonTapped() {
@@ -73,27 +99,8 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         present(alertController, animated: true, completion: nil)
     }
-
-        
-        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return products.count
-        }
-        
-        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-            let product = products[indexPath.row]
-            cell.textLabel?.text = "\(product.name) (\(product.quantity))"
-            return cell
-        }
+    
+    @objc func backButtonTapped() {
+        dismiss(animated: true, completion: nil)
     }
-  
-
-
-
-
-
-
-
-    
-    
-
+}
