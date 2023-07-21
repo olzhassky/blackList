@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 class MenuViewController: UIViewController {
-    var didTapButton: (() -> Void)?
+
     let homeButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .systemGray6
@@ -17,7 +17,6 @@ class MenuViewController: UIViewController {
         button.setTitleColor(.white, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(home), for: .touchUpInside)
-        
         return button
     }()
     let buyButton: UIButton = {

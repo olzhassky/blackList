@@ -21,6 +21,8 @@
 		6319C78B2A68BD9C0083DC17 /* settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6319C78A2A68BD9C0083DC17 /* settings.swift */; };
 		6319C78D2A68C0370083DC17 /* Autorisation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6319C78C2A68C0370083DC17 /* Autorisation.swift */; };
 		6319C78F2A68C0D70083DC17 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6319C78E2A68C0D70083DC17 /* GoogleService-Info.plist */; };
+		6319C7922A6ABBC90083DC17 /* Foil in Frameworks */ = {isa = PBXBuildFile; productRef = 6319C7912A6ABBC90083DC17 /* Foil */; };
+		6319C7942A6ABC170083DC17 /* singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6319C7932A6ABC170083DC17 /* singleton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,7 @@
 		6319C78A2A68BD9C0083DC17 /* settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settings.swift; sourceTree = "<group>"; };
 		6319C78C2A68C0370083DC17 /* Autorisation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Autorisation.swift; sourceTree = "<group>"; };
 		6319C78E2A68C0D70083DC17 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		6319C7932A6ABC170083DC17 /* singleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = singleton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6319C7922A6ABBC90083DC17 /* Foil in Frameworks */,
 				6319C7832A684A9C0083DC17 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -142,6 +146,7 @@
 			children = (
 				6319C77F2A6848570083DC17 /* menuViewController.swift */,
 				6319C7842A686BB80083DC17 /* buyList.swift */,
+				6319C7932A6ABC170083DC17 /* singleton.swift */,
 				6319C78A2A68BD9C0083DC17 /* settings.swift */,
 			);
 			path = menu;
@@ -175,6 +180,7 @@
 			name = blackList;
 			packageProductDependencies = (
 				6319C7822A684A9C0083DC17 /* SnapKit */,
+				6319C7912A6ABBC90083DC17 /* Foil */,
 			);
 			productName = blackList;
 			productReference = 6319C74C2A6844B20083DC17 /* blackList.app */;
@@ -250,6 +256,7 @@
 			mainGroup = 6319C7432A6844B20083DC17;
 			packageReferences = (
 				6319C7812A684A9C0083DC17 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				6319C7902A6ABBC90083DC17 /* XCRemoteSwiftPackageReference "Foil" */,
 			);
 			productRefGroup = 6319C74D2A6844B20083DC17 /* Products */;
 			projectDirPath = "";
@@ -299,6 +306,7 @@
 				6319C7502A6844B20083DC17 /* AppDelegate.swift in Sources */,
 				6319C78B2A68BD9C0083DC17 /* settings.swift in Sources */,
 				6319C7522A6844B20083DC17 /* SceneDelegate.swift in Sources */,
+				6319C7942A6ABC170083DC17 /* singleton.swift in Sources */,
 				6319C7852A686BB80083DC17 /* buyList.swift in Sources */,
 				6319C7802A6848570083DC17 /* menuViewController.swift in Sources */,
 			);
@@ -636,6 +644,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		6319C7902A6ABBC90083DC17 /* XCRemoteSwiftPackageReference "Foil" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jessesquires/Foil.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -643,6 +659,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6319C7812A684A9C0083DC17 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		6319C7912A6ABBC90083DC17 /* Foil */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6319C7902A6ABBC90083DC17 /* XCRemoteSwiftPackageReference "Foil" */;
+			productName = Foil;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

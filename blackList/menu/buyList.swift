@@ -6,15 +6,10 @@
 //
 
 import UIKit
-
-struct Product {
-    let name: String
-    var quantity: Int
-}
+import Foil
 
 class TableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     let tableView = UITableView()
-    var products: [Product] = []
     var selectedProducts: Set<Int> = []
 
     override func viewDidLoad() {
@@ -22,7 +17,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         setupNavigationBar()
         setupTableView()
     }
-    
+
     private func setupNavigationBar() {
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
         navigationItem.rightBarButtonItem = addButton
@@ -40,16 +35,16 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return products.count
+        return AppDefaults.shared.shoppingList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-        let product = products[indexPath.row]
-        cell.textLabel?.text = "\(product.name) (\(product.quantity))"
+        let product = AppDefaults.shared.shoppingList[indexPath.row]
+        cell.textLabel?.text = product //"\(product.name) \(product.amount)"
+         
         
         cell.accessoryType = selectedProducts.contains(indexPath.row) ? .checkmark : .none
-        
         cell.selectionStyle = .default
         cell.textLabel?.textColor = selectedProducts.contains(indexPath.row) ? .gray : .white
 
@@ -58,6 +53,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+     
         
         if selectedProducts.contains(indexPath.row) {
             selectedProducts.remove(indexPath.row)
@@ -70,7 +66,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            products.remove(at: indexPath.row)
+            AppDefaults.shared.shoppingList.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
@@ -88,13 +84,14 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         let addAction = UIAlertAction(title: "Добавить", style: .default) { (action) in
             if let nameTextField = alertController.textFields?[0],
-               let quantityTextField = alertController.textFields?[1],
+               let amountTextField = alertController.textFields?[1],
                let name = nameTextField.text,
-               let quantityString = quantityTextField.text,
-               let quantity = Int(quantityString) {
+               let amountString = amountTextField.text,
+               let amount = Int(amountString) {
                 
-                let product = Product(name: name, quantity: quantity)
-                self.products.append(product)
+                //let product = Product(storedValue: (name, amount))
+                let product = name
+                AppDefaults.shared.shoppingList.append(product)
                 self.tableView.reloadData()
             }
         }
