@@ -1,3 +1,10 @@
+//
+//  buyList.swift
+//  blackList
+//
+//  Created by Olzhas Zhakan on 19.07.2023.
+//
+
 import UIKit
 
 struct Product {

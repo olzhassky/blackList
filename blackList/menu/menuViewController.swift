@@ -1,5 +1,5 @@
 //
-//  SettingsViewController.swift
+//  menuViewController.swift
 //  blackList
 //
 //  Created by Olzhas Zhakan on 19.07.2023.
@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class NewViewController: UIViewController {
+class MenuViewController: UIViewController {
     var didTapButton: (() -> Void)?
     let homeButton: UIButton = {
         let button = UIButton()
@@ -17,6 +17,7 @@ class NewViewController: UIViewController {
         button.setTitleColor(.white, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(home), for: .touchUpInside)
+        
         return button
     }()
     let buyButton: UIButton = {
@@ -50,21 +51,21 @@ class NewViewController: UIViewController {
     }
     func makeConstraints() {
         homeButton.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
+            make.centerX.equalToSuperview().offset(-85)
             make.top.equalToSuperview().offset(20)
             make.width.equalTo(200)
             make.height.equalTo(50)
         }
         
         buyButton.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
+            make.centerX.equalToSuperview().offset(-80)
             make.top.equalTo(homeButton.snp.bottom).offset(20)
             make.width.equalTo(200)
             make.height.equalTo(50)
         }
         
         settingButton.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
+            make.centerX.equalToSuperview().offset(-105)
             make.top.equalTo(buyButton.snp.bottom).offset(20)
             make.width.equalTo(200)
             make.height.equalTo(50)
@@ -76,20 +77,20 @@ class NewViewController: UIViewController {
         let homeIcon = UIImage(systemName: "house")
         homeButton.setImage(homeIcon, for: .normal)
         homeButton.imageView?.contentMode = .scaleAspectFit
-        homeButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: -125, bottom: 0, right: 90)
-        homeButton.titleEdgeInsets = UIEdgeInsets(top: 0, left: -175, bottom: 0, right: 0)
+        homeButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 40)
+     
 
         let buyIcon = UIImage(systemName: "cart")
         buyButton.setImage(buyIcon, for: .normal)
         buyButton.imageView?.contentMode = .scaleAspectFit
-        buyButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: -120, bottom: 0, right: 90)
-        buyButton.titleEdgeInsets = UIEdgeInsets(top: 0, left: -163, bottom: 0, right: 0)
+        buyButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 40)
+        
 
         let settingIcon = UIImage(systemName: "gearshape")
         settingButton.setImage(settingIcon, for: .normal)
         settingButton.imageView?.contentMode = .scaleAspectFit
-        settingButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: -180, bottom: 0, right: 80)
-        settingButton.titleEdgeInsets = UIEdgeInsets(top: 0, left: -207, bottom: 0, right: 0)
+        settingButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 42)
+       
 
     }
     

@@ -1,3 +1,10 @@
+//
+//  ViewController.swift
+//  blackList
+//
+//  Created by Olzhas Zhakan on 19.07.2023.
+//
+
 import UIKit
 import SnapKit
 
@@ -37,13 +44,13 @@ class ViewController: UIViewController {
     }
 
     @objc func openButtonTapped() {
-        let newViewController = NewViewController()
-        if let sheet = newViewController.sheetPresentationController {
+        let menuViewController = MenuViewController()
+        if let sheet = menuViewController.sheetPresentationController {
             sheet.prefersGrabberVisible = true
             sheet.preferredCornerRadius = 24
             sheet.detents = [.medium()]
         }
-        present(newViewController, animated: true, completion: nil)
+        present(menuViewController, animated: true, completion: nil)
     }
 
     func setupBalls() {
